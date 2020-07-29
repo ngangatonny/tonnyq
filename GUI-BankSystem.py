@@ -14,7 +14,7 @@ def check_acc_nmb(num):
 	try:
 		fpin=open(num+".txt",'r')
 	except FileNotFoundError:
-		messagebox.showinfo("Error","Invalid Credentials!\nTry Again!")
+		messagebox.showinfo("Error","Invalid Credentials!\nPlease Try Again!")
 		return 0
 	fpin.close()
 	return 
@@ -51,14 +51,14 @@ def write(master,name,oc,pin):
 	frec.write(str(strftime("[%Y-%m-%d] [%H:%M:%S]  ",gmtime()))+"     "+oc+"              "+oc+"\n")
 	frec.close()
 	
-	messagebox.showinfo("Details","Your Account Number is:"+str(accnt_no))
+	messagebox.showinfo("Details","Your USIU_BANK Account Number is:"+str(accnt_no))
 	master.destroy()
 	return
 
 def crdt_write(master,amt,accnt,name):
 
 	if(is_number(amt)==0):
-		messagebox.showinfo("Error","Invalid Credentials\nPlease try again.")
+		messagebox.showinfo("Error","Invalid Credentials\nDear Customer, You have Entered an Invalid Password or username, Please try again.")
 		master.destroy()
 		return 
 
@@ -84,7 +84,7 @@ def crdt_write(master,amt,accnt,name):
 def debit_write(master,amt,accnt,name):
 
 	if(is_number(amt)==0):
-		messagebox.showinfo("Error","Invalid Credentials\nPlease try again.")
+		messagebox.showinfo("Error","Invalid Credentials\nDear Customer, You have Entered an Invalid Password or username, Please try again.")
 		master.destroy()
 		return 
 			
@@ -93,7 +93,7 @@ def debit_write(master,amt,accnt,name):
 	camt=int(fdet.readline())
 	fdet.close()
 	if(int(amt)>camt):
-		messagebox.showinfo("Error!!","You dont have that amount left in your account\nPlease try again.")
+		messagebox.showinfo("Error!!","You dont have that amount left in your account\nPlease try a different amount.")
 	else:
 		amti=int(amt)
 		cb=camt-amti
@@ -116,7 +116,7 @@ def Cr_Amt(accnt,name):
 	creditwn.title("Credit Amount")
 	creditwn.configure(bg="orange")
 	fr1=tk.Frame(creditwn,bg="blue")
-	l_title=tk.Message(creditwn,text="BENKI KUU",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(creditwn,text="USIU_BANK_ONLINE",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","50","bold"))
 	l_title.pack(side="top")
 	l1=tk.Label(creditwn,relief="raised",text="Enter Amount to be credited: ")
@@ -134,7 +134,7 @@ def De_Amt(accnt,name):
 	debitwn.title("Withdraw Amount")	
 	debitwn.configure(bg="white")
 	fr1=tk.Frame(debitwn,bg="blue")
-	l_title=tk.Message(debitwn,text="BENKI KUU",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(debitwn,text="USIU_BANK_ONLINE",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","50","bold"))
 	l_title.pack(side="top")
 	l1=tk.Label(debitwn,relief="raised",text="Enter Amount to be debited: ")
@@ -164,7 +164,7 @@ def disp_tr_hist(accnt):
 	disp_wn.title("Transaction History")
 	disp_wn.configure(bg="orange")
 	fr1=tk.Frame(disp_wn,bg="blue")
-	l_title=tk.Message(disp_wn,text="BENKI KUU",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(disp_wn,text="USIU_BANK_ONLINE",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","50","bold"))
 	l_title.pack(side="top")
 	fr1=tk.Frame(disp_wn)
@@ -184,11 +184,11 @@ def disp_tr_hist(accnt):
 def logged_in_menu(accnt,name):
 	rootwn=tk.Tk()
 	rootwn.geometry("1600x500")
-	rootwn.title("BENKI KUU-"+name)
+	rootwn.title("USIU_BANK_ONLINE-"+name)
 	rootwn.configure(background='orange')
 	fr1=tk.Frame(rootwn)
 	fr1.pack(side="top")
-	l_title=tk.Message(rootwn,text="SIMPLE BANKING\n SYSTEM",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(rootwn,text="USIU_BANK_ONLINE\n SYSTEM",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","50","bold"))
 	l_title.pack(side="top")
 	label=tk.Label(text="Logged in as: "+name,relief="raised",bg="black",fg="white",anchor="center",justify="center")
@@ -251,7 +251,7 @@ def log_in(master):
 	loginwn.title("Log in")
 	loginwn.configure(bg="white")
 	fr1=tk.Frame(loginwn,bg="blue")
-	l_title=tk.Message(loginwn,text="BENKI KUU",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(loginwn,text="USIU_BANK_ONLINE",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","50","bold"))
 	l_title.pack(side="top")
 	l1=tk.Label(loginwn,text="Enter Name:",relief="raised")
@@ -280,7 +280,7 @@ def Create():
 	crwn.title("Create Account")
 	crwn.configure(bg="white")
 	fr1=tk.Frame(crwn,bg="blue")
-	l_title=tk.Message(crwn,text="BENKI KUU",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(crwn,text="USIU_BANK_ONLINE",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","50","bold"))
 	l_title.pack(side="top")
 	l1=tk.Label(crwn,text="Enter Name:",relief="raised")
@@ -310,14 +310,14 @@ def Main_Menu():
 
 	rootwn=tk.Tk()
 	rootwn.geometry("1600x500")
-	rootwn.title("BENKI KUU")
+	rootwn.title("USIU_BANK_ONLINE")
 	rootwn.configure(background='white')
 	fr1=tk.Frame(rootwn)
 	fr1.pack(side="top")
 	bg_image = tk.PhotoImage(file ="pile1.gif")
 	x = tk.Label (image = bg_image)
 	x.place(y=-400)
-	l_title=tk.Message(text="Benki Kuu Online Portal",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
+	l_title=tk.Message(text="USIU_BANK_ONLINE Online Portal",relief="raised",width=2000,padx=600,pady=0,fg="white",bg="black",justify="center",anchor="center")
 	l_title.config(font=("Courier","25","bold"))
 	l_title.pack(side="top")
 	imgc1=tk.PhotoImage(file="new.gif")
